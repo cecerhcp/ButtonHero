@@ -49,14 +49,14 @@ public class MainActivity extends AppCompatActivity {
     Integer GREEN = 2;
     Integer YELLOW = 3;
     Integer ERROR = 4;
-    Integer SPEED = 3500;
-    Integer INTERVAL = 500;
+    Integer SPEED = 3250;
+    Integer INTERVAL = 750;
     Integer MIN_INTERVAL = 500;
 
     String name = "Player";
 
     Float HITZONE_START = 760f;
-    Float HITZONE_END = 940f;
+    Float HITZONE_END = 910f;
     Float SCREEN_END = 990f;
 
     Float[] startX = new Float[4];
@@ -129,10 +129,10 @@ public class MainActivity extends AppCompatActivity {
 
         soundPool = new SoundPool(4, AudioManager.STREAM_MUSIC, 100);
         soundPoolMap = new HashMap(4);
-        soundPoolMap.put(RED, soundPool.load(this, R.raw.red, 1));
-        soundPoolMap.put(GREEN, soundPool.load(this, R.raw.c, 2));
-        soundPoolMap.put(BLUE, soundPool.load(this, R.raw.b, 3));
-        soundPoolMap.put(YELLOW, soundPool.load(this, R.raw.d, 4));
+        soundPoolMap.put(RED, soundPool.load(this, R.raw.a2, 1));
+        soundPoolMap.put(GREEN, soundPool.load(this, R.raw.c2, 2));
+        soundPoolMap.put(BLUE, soundPool.load(this, R.raw.e2, 3));
+        soundPoolMap.put(YELLOW, soundPool.load(this, R.raw.g2, 4));
         soundPoolMap.put(ERROR, soundPool.load(this, R.raw.error, 5));
 
 
