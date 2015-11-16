@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
     String name = "Player";
 
-    Float HITZONE_START = 760f;
+    Float HITZONE_START = 700f;
     Float HITZONE_END = 910f;
     Float SCREEN_END = 990f;
 
@@ -136,43 +137,59 @@ public class MainActivity extends AppCompatActivity {
         soundPoolMap.put(ERROR, soundPool.load(this, R.raw.error, 5));
 
 
-        redButton.setOnClickListener(new View.OnClickListener() {
+        redButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                checkPressedButton(RED, reds);
-                scoreView.setText("Score: " + score.toString());
-                livesView.setText("Lives: " + lives.toString());
+            public boolean onTouch(View v, MotionEvent event) {
 
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    checkPressedButton(RED, reds);
+                    scoreView.setText("Score: " + score.toString());
+                    livesView.setText("Lives: " + lives.toString());
+                    return true;
+                }
+                return false;
+            }
+            });
+
+        greenButton.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    checkPressedButton(GREEN, greens);
+                    scoreView.setText("Score: " + score.toString());
+                    livesView.setText("Lives: " + lives.toString());
+                    return true;
+                }
+                return false;
             }
         });
 
-        greenButton.setOnClickListener(new View.OnClickListener() {
+        blueButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                checkPressedButton(GREEN, greens);
-                scoreView.setText("Score: " + score.toString());
-                livesView.setText("Lives: " + lives.toString());
+            public boolean onTouch(View v, MotionEvent event) {
 
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    checkPressedButton(BLUE, blues);
+                    scoreView.setText("Score: " + score.toString());
+                    livesView.setText("Lives: " + lives.toString());
+                    return true;
+                }
+                return false;
             }
         });
 
-        blueButton.setOnClickListener(new View.OnClickListener() {
+        yellowButton.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                checkPressedButton(BLUE, blues);
-                scoreView.setText("Score: " + score.toString());
-                livesView.setText("Lives: " + lives.toString());
+            public boolean onTouch(View v, MotionEvent event) {
 
-            }
-        });
-
-        yellowButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checkPressedButton(YELLOW, yellows);
-                scoreView.setText("Score: " + score.toString());
-                livesView.setText("Lives: " + lives.toString());
-
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    checkPressedButton(YELLOW, yellows);
+                    scoreView.setText("Score: " + score.toString());
+                    livesView.setText("Lives: " + lives.toString());
+                    return true;
+                }
+                return false;
             }
         });
 
